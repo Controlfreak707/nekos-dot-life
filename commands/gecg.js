@@ -1,0 +1,11 @@
+module.exports = {
+  command: "gecg",
+  description: "Gets a URL of a gecg (genetically engineered catgirl) image.",
+  executor: async (args, nekos) => {
+    const { url } = await nekos.sfw.gecg();
+    return {
+      send: true,
+      result: url,
+    };
+  },
+};
