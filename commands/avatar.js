@@ -1,6 +1,6 @@
 module.exports = {
   command: "avatar",
-  description: "Gets a URL of an avatar image.",
+  description: "Gets the URL of an avatar image.",
   executor: async (args, nekos) => {
     const { url } = await nekos.sfw.avatar();
     return {

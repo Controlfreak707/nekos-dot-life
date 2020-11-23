@@ -1,6 +1,6 @@
 module.exports = {
   command: "meow",
-  description: "Gets a URL of a cat image/gif.",
+  description: "Gets the URL of a cat image/gif.",
   executor: async (args, nekos) => {
     const { url } = await nekos.sfw.meow();
     return {

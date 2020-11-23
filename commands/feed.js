@@ -1,6 +1,6 @@
 module.exports = {
   command: "feed",
-  description: "Gets a URL of a feeding image/gif.",
+  description: "Gets the URL of a feeding image/gif.",
   executor: async (args, nekos) => {
     const { url } = await nekos.sfw.feed();
     return {
