@@ -1,4 +1,6 @@
 const { Plugin } = require("powercord/entities");
+
+const Settings = require("./Settings.jsx");
 const commands = require("./commands");
 
 const NekosClient = require("nekos.life");
@@ -8,6 +10,11 @@ module.exports = class NekosDotLife extends (
   Plugin
 ) {
   startPlugin() {
+    powercord.api.settings.registerSettings("nekos-dot-life", {
+      category: this.entityID,
+      label: "Nekos.Life",
+      render: Settings,
+    });
     powercord.api.commands.registerCommand({
       command: "neko",
       description:
@@ -15,7 +22,7 @@ module.exports = class NekosDotLife extends (
       usage: "{c} <subcommand> [text]",
       executor: (args) => {
         const subcommand = commands[args[0]];
-        if (!subcommand) {
+        if (!subcommand)
           return {
             send: false,
             result: {
@@ -31,16 +38,28 @@ module.exports = class NekosDotLife extends (
                 .join(", ")}.`,
             },
           };
-        }
+
+        if (!this.settings.get("nsfw", false) && subcommand.nsfw)
+          return {
+            send: false,
+            result: {
+              type: "rich",
+              author: { name: "Nekos.Life" },
+              title: "NSFW commands disabled",
+              description: `\`${subcommand.command}\` is marked as potentially NSFW. To use this command, you must enable potentially NSFW commands.`,
+            },
+          };
 
         return subcommand.executor(args.slice(1), nekos);
       },
       autocomplete: (args) => {
         if (args[0] !== void 0 && args.length === 1) {
           return {
-            commands: Object.values(commands).filter(({ command }) =>
-              command.includes(args[0].toLowerCase())
-            ),
+            commands: Object.values(commands)
+              .filter(({ command }) => command.includes(args[0].toLowerCase()))
+              .filter(({ nsfw }) =>
+                this.settings.get("nsfw", false) ? true : !nsfw
+              ),
             header: "neko subcommands",
           };
         }
@@ -56,6 +75,7 @@ module.exports = class NekosDotLife extends (
   }
 
   pluginWillUnload() {
+    powercord.api.settings.unregisterSettings("nekos-dot-life");
     powercord.api.commands.unregisterCommand("neko");
   }
 };
