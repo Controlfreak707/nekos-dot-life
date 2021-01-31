@@ -1,8 +1,8 @@
 module.exports = {
-  command: "yuri",
-  description: "Gets the URL of a yuri image/gif.",
+  command: "feet",
+  description: "Gets the URL of a feet image/gif.",
   executor: async (args, nekos) => {
-    const { url } = await nekos.nsfw.yuri();
+    const { url } = await nekos.nsfw.feet();
     return {
       send: true,
       result: url,
