@@ -10,11 +10,13 @@ module.exports = class NekosDotLife extends (
   Plugin
 ) {
   startPlugin() {
+    // eslint-disable-next-line no-undef
     powercord.api.settings.registerSettings("nekos-dot-life", {
       category: this.entityID,
       label: "Nekos.Life",
       render: Settings,
     });
+    // eslint-disable-next-line no-undef
     powercord.api.commands.registerCommand({
       command: "neko",
       description:
@@ -75,7 +77,9 @@ module.exports = class NekosDotLife extends (
   }
 
   pluginWillUnload() {
+    // eslint-disable-next-line no-undef
     powercord.api.settings.unregisterSettings("nekos-dot-life");
+    // eslint-disable-next-line no-undef
     powercord.api.commands.unregisterCommand("neko");
   }
 };
