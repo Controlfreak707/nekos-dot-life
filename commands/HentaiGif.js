@@ -1,5 +1,5 @@
 module.exports = {
-  command: "hentaiGif",
+  command: "randomHentaiGif",
   description: "Gets the URL of a Hentai image/gif.",
   executor: async (args, nekos) => {
     const { url } = await nekos.nsfw.randomHentaiGif();
