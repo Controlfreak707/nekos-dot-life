@@ -1,5 +1,5 @@
 module.exports = {
-  command: "catText",
+  command: "cattext",
   description: "Get text of a cat emoji.",
   executor: async (args, nekos) => {
     if (args.length < 1) {

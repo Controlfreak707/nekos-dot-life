@@ -1,4 +1,5 @@
 module.exports = {
+
   command: "avatar",
   description: "Gets the URL of an avatar image.",
   nsfw: true,
