@@ -1,5 +1,5 @@
 module.exports = {
-  command: "pussywankgif",
+  command: "pussyWankGif",
   description: "Gets the URL of a pussyWankGif image/gif.",
   executor: async (args, nekos) => {
     const { url } = await nekos.nsfw.pussyWankGif();

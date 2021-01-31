@@ -1,5 +1,5 @@
 module.exports = {
-  command: "erofeet",
+  command: "eroFeet",
   description: "Gets the URL of a eroFeet image/gif.",
   executor: async (args, nekos) => {
     const { url } = await nekos.nsfw.eroFeet();
