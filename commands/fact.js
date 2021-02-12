@@ -1,8 +1,8 @@
 module.exports = {
-  command: "avatar",
-  description: "Gets the URL of an avatar.",
+  command: "fact",
+  description: "Gets a URL of fact image/gif",
   executor: async (args, nekos) => {
-    const { url } = await nekos.sfw.avatar();
+    const { url } = await nekos.sfw.fact();
     return {
       send: true,
       result: url,
