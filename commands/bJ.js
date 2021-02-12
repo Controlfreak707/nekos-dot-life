@@ -1,9 +1,9 @@
 module.exports = {
-  command: "anal",
-  description: "Gets a NSFW URL of anal image/gif",
+  command: "bJ",
+  description: "Gets a NSFW URL of a bJ image or gif.",
   nsfw: true,
   executor: async (args, nekos) => {
-    const { url } = await nekos.nsfw.anal();
+    const { url } = await nekos.nsfw.bJ();
     return {
       send: true,
       result: url,

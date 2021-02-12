@@ -5,6 +5,7 @@ module.exports = class Settings extends (
   React.Component
 ) {
   render() {
+    // eslint-disable-next-line react/prop-types
     const { getSetting, toggleSetting } = this.props;
     return (
       <div>

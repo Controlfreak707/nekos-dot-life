@@ -1,6 +1,6 @@
 module.exports = {
   command: "cumArts",
-  description: "Gets a NSFW URL of cumArts image/gif",
+  description: "Gets a NSFW URL of a cum art image or gif.",
   nsfw: true,
   executor: async (args, nekos) => {
     const { url } = await nekos.nsfw.cumArts();

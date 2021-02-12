@@ -1,9 +1,9 @@
 module.exports = {
-  command: "trap",
-  description: "Gets a NSFW URL of trap image/gif",
+  command: "anal",
+  description: "Gets a NSFW URL of an anal image or gif.",
   nsfw: true,
   executor: async (args, nekos) => {
-    const { url } = await nekos.nsfw.trap();
+    const { url } = await nekos.nsfw.anal();
     return {
       send: true,
       result: url,

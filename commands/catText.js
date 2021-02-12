@@ -8,8 +8,9 @@ module.exports = {
         result: {
           type: "rich",
           author: { name: "Nekos.Life" },
-          title: "Missing required arguments",
+          title: "Missing required arguments!",
           footer: {
+            // eslint-disable-next-line no-undef
             text: `Refer to ${powercord.api.commands.prefix}help neko`,
           },
         },
