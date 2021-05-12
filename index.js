@@ -1,22 +1,20 @@
-const { Plugin } = require("powercord/entities");
+import { Plugin } from "powercord/entities";
 
-const Settings = require("./Settings.jsx");
-const commands = require("./commands");
+import Settings from "./Settings.jsx";
+import commands from "./commands";
 
-const NekosClient = require("nekos.life");
+import NekosClient from "nekos.life";
 const nekos = new NekosClient();
 
-module.exports = class NekosDotLife extends (
+export default class NekosDotLife extends (
   Plugin
 ) {
   startPlugin() {
-    // eslint-disable-next-line no-undef
     powercord.api.settings.registerSettings("nekos-dot-life", {
       category: this.entityID,
       label: "Nekos.Life",
       render: Settings,
     });
-    // eslint-disable-next-line no-undef
     powercord.api.commands.registerCommand({
       command: "neko",
       description:
@@ -47,8 +45,8 @@ module.exports = class NekosDotLife extends (
             result: {
               type: "rich",
               author: { name: "Nekos.Life" },
-              title: "NSFW commands disabled",
-              description: `\`${subcommand.command}\` is marked as potentially NSFW. To use this command, you must enable potentially NSFW commands.`,
+              title: "NSFW commands are disabled!",
+              description: `\`${subcommand.command}\` is marked as potentially NSFW. To use this command, you must enable potentially NSFW commands in settings.`,
             },
           };
 
@@ -77,9 +75,7 @@ module.exports = class NekosDotLife extends (
   }
 
   pluginWillUnload() {
-    // eslint-disable-next-line no-undef
     powercord.api.settings.unregisterSettings("nekos-dot-life");
-    // eslint-disable-next-line no-undef
     powercord.api.commands.unregisterCommand("neko");
   }
 };

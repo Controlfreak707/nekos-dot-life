@@ -1,11 +1,9 @@
-module.exports = {
-  command: "avatar",
-  description: "Gets the URL of an avatar.",
-  executor: async (args, nekos) => {
-    const { url } = await nekos.sfw.avatar();
-    return {
-      send: true,
-      result: url,
-    };
-  },
-};
+export const command = "avatar";
+export const description = "Gets the URL of an avatar.";
+export async function executor(args, nekos) {
+  const { url } = await nekos.sfw.avatar();
+  return {
+    send: true,
+    result: url,
+  };
+}

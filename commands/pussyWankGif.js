@@ -1,12 +1,10 @@
-module.exports = {
-  command: "pussyWankGif",
-  description: "Gets a NSFW URL of pussy wank gif",
-  nsfw: true,
-  executor: async (args, nekos) => {
-    const { url } = await nekos.nsfw.pussyWankGif();
-    return {
-      send: true,
-      result: url,
-    };
-  },
-};
+export const command = "pussyWankGif";
+export const description = "Gets a NSFW URL of pussy wank gif";
+export const nsfw = true;
+export async function executor(args, nekos) {
+  const { url } = await nekos.nsfw.pussyWankGif();
+  return {
+    send: true,
+    result: url,
+  };
+}

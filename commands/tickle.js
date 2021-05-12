@@ -1,11 +1,9 @@
-module.exports = {
-  command: "tickle",
-  description: "Gets the URL of a tickle image/gif.",
-  executor: async (args, nekos) => {
-    const { url } = await nekos.sfw.tickle();
-    return {
-      send: true,
-      result: url,
-    };
-  },
-};
+export const command = "tickle";
+export const description = "Gets the URL of a tickle image/gif.";
+export async function executor(args, nekos) {
+  const { url } = await nekos.sfw.tickle();
+  return {
+    send: true,
+    result: url,
+  };
+}
